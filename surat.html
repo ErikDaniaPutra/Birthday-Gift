@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday 🤍</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6f1eb, #fbeaea);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      max-width: 700px;
+      width: 100%;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+      animation: slideUp 1.2s ease;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .button {
+      padding: 12px 28px;
+      background: #e5a5ab;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #d18b92;
+      transform: translateY(-2px);
+    }
+
+    /* ================= POPUP SURAT ================= */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.4s ease;
+      z-index: 100;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .letter {
+      background: #fffdf8;
+      max-width: 650px;
+      width: 92%;
+      max-height: 75vh;
+      padding: 36px 40px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      overflow-y: auto;
+      animation: popIn 0.5s ease;
+      position: relative;
+    }
+
+    .letter::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .letter::-webkit-scrollbar-thumb {
+      background: #e5a5ab;
+      border-radius: 10px;
+    }
+
+    .letter h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .letter p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+      white-space: pre-line;
+    }
+
+    .close-btn {
+      margin-top: 25px;
+      display: block;
+      text-align: center;
+    }
+
+    .nav-buttons {
+      position: fixed;
+      bottom: 28px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 50;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      background: linear-gradient(to right, #e8b4b8, #d99aa0);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(217,154,160,0.4);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Untuk Ndahh</h1>
+    <h2>Today is Ndah's birthday.</h2>
+
+    <div class="section">
+      <p>
+        Pesan ini ditujukan untuk<br>
+        <b>Raden Roro Indah Dwi Handayani Sinulingga:</b><br><br>
+        <i>"Haloo bubb, ayoo tekan tombol di bawah dan dibaca isinya yaa 🤍"</i>
+      </p>
+    </div>
+
+    <button class="button" onclick="openLetter()">Klik aku</button>
+
+    <footer style="margin-top:40px;font-size:0.85rem;color:#888;">
+      Kejutan kecil ini dibuat khusus untuk Ndahh dari Erik xixixii
+    </footer>
+  </div>
+
+  <!-- POPUP LETTER -->
+  <div class="overlay" id="overlay">
+    <div class="letter">
+      <h3>💌 Untuk Ndahhh</h3>
+      <p>
+Selamat ulang tahunn bubb!!!
+
+In your birthday, aku ingin membuat kamu merasa lebih baik dengan adanya kejutan kecil dari aku hehe..
+
+Semogaa sehat selalu dan panjang umur.
+Semogaa semua apa yang kamu impikan tercapai yaa.
+Semogaa kamu selalu dikelilingin orang-orang yang baik buat bubub.
+Semogaa dengan bertambahnya umur, kamu menjadi pribadi yang lebih baik, tangguh, bijak, dan tekun yaa.
+
+Semogaa bubub selalu dimudahkan dalam segalanya yaa..
+termasuk akademik kuliah, karir, workshop kamu di jepang, acara panitia, dan lainnya.
+
+Aku disini percaya sama kamu. Ndahh yang aku kenal adalah orang yang sangat keren, kamu pasti bisa melalui semua itu bubb!!
+Aku juga disinii hadir untuk menemani dan mendukung petualangan kamu kedepannyaa bubb xixixi.
+
+dan...
+
+Semogaa di ulang tahun kamu berikut-berikutnyaa...
+kita masih dikasih kesempatan buat rayain bersama yaa hehe :D
+
+— With love, Erik
+      </p>
+
+      <div class="close-btn">
+        <button class="button" onclick="closeLetter()">Close</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="nav-buttons">
+        <button class="btn" onclick="goBack()">◀ Back</button>
+        <button class="btn" onclick="goHome()">Home</button>
+    </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeLetter() {
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+    function goBack() {
+      window.location.href = "cake.html";
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

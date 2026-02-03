@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday 🤍</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6f1eb, #fbeaea);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* CARD */
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      max-width: 600px;
+      width: 100%;
+      padding: 50px 25px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #db999f;
+      color: #fff;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #d58089;
+      transform: translateY(-2px);
+    }
+
+    /* BUNGA & BALON */
+    .floating {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      opacity: 0.8;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) translateX(40px) rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* POPUP */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 50;
+    }
+
+    .popup-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .popup {
+      background: rgba(255, 255, 255, 0.96);
+      padding: 30px 26px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 330px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      animation: popupIn 0.5s ease;
+    }
+
+    .popup h2 {
+      background: linear-gradient(45deg, #d99aa0, #e8b4b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .popup p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .popup button {
+      padding: 12px 28px;
+      background: #db999f;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .popup button:hover {
+      background: #d58089;
+      transform: translateY(-2px);
+    }
+
+    @keyframes popupIn {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MAIN CARD -->
+  <div class="card">
+    <h1>Happy Birthday, Ndahh🌷</h1>
+    <h2>
+      Ciee ada yang lagi ultah niih...<br>
+      Sebelumnya ayo klik tombol di bawah bub :p
+    </h2>
+    <button class="button" onclick="openPopup()">Klik disini</button>
+  </div>
+
+  <!-- POPUP NOTIF -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <h2><strong>Bentar bubb!!</strong></h2>
+      <p>
+        Bubb, nanti matiin semua lilinnya<br>
+        dengan cara kamu klik semua lilinnya yaa xixixi
+      </p>
+      <button onclick="goToCake()">Iyaa bub xixii</button>
+    </div>
+  </div>
+
+  <script>
+    const icons = ["🌸", "🌷", "🎈"];
+
+    function createFloatingItem() {
+      const item = document.createElement("div");
+      item.classList.add("floating");
+      item.innerText = icons[Math.floor(Math.random() * icons.length)];
+
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.fontSize = Math.random() * 20 + 18 + "px";
+      item.style.animationDuration = Math.random() * 5 + 6 + "s";
+
+      document.body.appendChild(item);
+
+      setTimeout(() => {
+        item.remove();
+      }, 12000);
+    }
+
+    setInterval(createFloatingItem, 500);
+
+    function openPopup() {
+      document.getElementById("popup").classList.add("show");
+    }
+
+    function goToCake() {
+      window.location.href = "cake.html";
+    }
+  </script>
+
+</body>
+</html>
